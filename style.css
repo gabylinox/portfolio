@@ -1,0 +1,150 @@
+/* ===== PALETA =====
+   Para trocar o clima do site, mude só estas cores.
+   Opção rosa (anterior): --fundo:#fcf4f3; --texto:#3a2a33; --suave:#7b6670; --rosa:#e8a1b5; --rosa-claro:#fbe4ea;
+     --destaque:#b8476b; --painel:#3b2233; --painel-fim:#5a2d47; --painel-texto:#fbeaf0; --cargo:#e8a1b5;
+     --foto-borda:#e8a1b5; --pill:rgba(255,255,255,.08); --pill-hover:rgba(232,161,181,.35);
+   (A variável --rosa agora guarda o lilás de destaque; o nome ficou só por costume.)
+*/
+:root {
+  --fundo: #f6f2fc;
+  --texto: #2f2545;
+  --suave: #6f6588;
+  --rosa: #a78bdb;
+  --rosa-claro: #e9e0f7;
+  --destaque: #6d47c2;
+  --painel: #dccdf6;
+  --painel-fim: #b9a3ea;
+  --painel-texto: #2d2050;
+  --cargo: #4a2c94;
+  --foto-borda: #ffffff;
+  --pill: rgba(255, 255, 255, .55);
+  --pill-hover: rgba(255, 255, 255, .9);
+  --cartao: #ffffff;
+  --sombra: 0 10px 30px rgba(109, 71, 194, .12);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #17131f; --texto: #eee8f8; --suave: #b0a6c4;
+    --rosa: #8f72d1; --rosa-claro: #2c2340; --destaque: #c4adf5;
+    --painel: #211836; --painel-fim: #33244f; --painel-texto: #efe9fb; --cargo: #c4adf5;
+    --foto-borda: #a78bdb; --pill: rgba(255, 255, 255, .08); --pill-hover: rgba(167, 139, 219, .35);
+    --cartao: #221b30; --sombra: none;
+  }
+}
+* { box-sizing: border-box; margin: 0; }
+body {
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: var(--fundo); color: var(--texto);
+  line-height: 1.65; display: grid; grid-template-columns: 340px 1fr; min-height: 100vh;
+}
+a { color: inherit; }
+a:focus-visible { outline: 2px solid var(--destaque); outline-offset: 3px; }
+h1, h2, h3 { font-family: "Fraunces", Georgia, serif; }
+
+/* ----- barra lateral ----- */
+.perfil {
+  padding: 3rem 2rem; min-height: 100vh;
+  background: linear-gradient(170deg, var(--painel) 0%, var(--painel-fim) 100%);
+  color: var(--painel-texto);
+  display: flex; flex-direction: column; gap: 1rem;
+  border-radius: 0 40px 40px 0;
+}
+.perfil img {
+  width: 132px; height: 132px; border-radius: 50%; object-fit: cover;
+  background: var(--rosa-claro); border: 4px solid var(--foto-borda);
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, .3);
+}
+.perfil h1 { font-size: 2.3rem; font-weight: 700; line-height: 1.1; }
+.cargo { color: var(--cargo); font-weight: 700; letter-spacing: .02em; }
+.contatos { display: flex; flex-direction: column; gap: .5rem; margin-top: auto; }
+.contatos a {
+  text-decoration: none; padding: .5rem 1rem; border-radius: 999px;
+  background: var(--pill); transition: background .2s;
+}
+.contatos a:hover { background: var(--pill-hover); }
+
+/* ----- conteúdo ----- */
+main { padding: 3rem clamp(1.5rem, 5vw, 4rem); max-width: 60rem; }
+section { margin-bottom: 3.5rem; }
+h2 { font-size: 1.9rem; font-weight: 700; margin-bottom: 1.2rem; display: flex; align-items: center; gap: .8rem; }
+h2::after { content: ""; flex: 1; height: 2px; border-radius: 2px; background: linear-gradient(90deg, var(--rosa), transparent); }
+h3 { font-size: 1.1rem; font-weight: 700; }
+section > h3 { color: var(--suave); margin: 1.2rem 0 .5rem; font-family: "DM Sans", sans-serif; text-transform: uppercase; font-size: .8rem; letter-spacing: .1em; }
+
+.tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; margin: .6rem 0; }
+.tags li { background: var(--rosa-claro); color: var(--destaque); border-radius: 999px; padding: .2rem .9rem; font-size: .88rem; font-weight: 500; }
+
+.projetos { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.4rem; }
+.projeto {
+  background: var(--cartao); border-radius: 22px; padding: 1.6rem;
+  box-shadow: var(--sombra); transition: transform .2s;
+}
+.projeto:hover { transform: translateY(-4px); }
+.projeto p { color: var(--suave); margin-top: .5rem; }
+.links { display: flex; gap: 1rem; }
+.links a { color: var(--destaque); font-weight: 700; }
+
+.linha { list-style: none; padding: 0 0 0 1.4rem; border-left: 2px dashed var(--rosa); }
+.linha li { position: relative; padding-bottom: 1.8rem; }
+.linha li::before {
+  content: ""; position: absolute; left: calc(-1.4rem - 7px); top: .5rem;
+  width: 12px; height: 12px; border-radius: 50%; background: var(--rosa);
+  box-shadow: 0 0 0 4px var(--rosa-claro);
+}
+.periodo { font-size: .85rem; color: var(--suave); }
+.local { color: var(--destaque); font-weight: 700; }
+
+@media (max-width: 800px) {
+  body { grid-template-columns: 1fr; }
+  .perfil { min-height: 0; border-radius: 0 0 32px 32px; }
+  .contatos { margin-top: 1rem; }
+}
+
+/* ===== TÓPICOS RETRÁTEIS ===== */
+.topico {
+  background: var(--cartao); border-radius: 22px; box-shadow: var(--sombra);
+  margin-bottom: 1rem; overflow: hidden; border: 1px solid transparent;
+  transition: border-color .2s;
+}
+.topico:hover, .topico[open] { border-color: var(--rosa); }
+
+.topico summary {
+  list-style: none; cursor: pointer; padding: 1.3rem 1.6rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.topico summary::-webkit-details-marker { display: none; }
+.topico summary:focus-visible { outline: 2px solid var(--destaque); outline-offset: -4px; border-radius: 22px; }
+.topico summary h2 { flex: 1; margin: 0; font-size: 1.5rem; }
+
+/* botão + que vira − */
+.topico summary::after {
+  content: "+"; flex: none; width: 2.2rem; height: 2.2rem; border-radius: 50%;
+  display: grid; place-items: center; font-size: 1.5rem; line-height: 1;
+  background: var(--rosa-claro); color: var(--destaque);
+  transition: transform .25s, background .2s;
+}
+.topico[open] summary::after { content: "−"; background: var(--destaque); color: var(--cartao); transform: rotate(180deg); }
+
+.conteudo { padding: .2rem 1.6rem 1.6rem; animation: abrir .3s ease; }
+@keyframes abrir { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .conteudo { animation: none; } }
+
+/* dentro do cartão, projetos ficam mais leves */
+.topico .projeto { background: var(--fundo); box-shadow: none; }
+
+/* ===== BARRA LATERAL FIXA (telas largas) ===== */
+@media (min-width: 801px) {
+  .perfil {
+    position: sticky; top: 0; align-self: start;
+    height: 100vh; height: 100dvh;          /* sempre a altura da janela */
+    /* espaços e tamanhos se ajustam à altura da tela para tudo caber sem rolagem */
+    padding: clamp(1.25rem, 3.5vh, 3rem) 2rem;
+    gap: clamp(.6rem, 1.4vh, 1rem);
+    overflow-y: auto;
+    scrollbar-width: none;                  /* sem barra de rolagem visível */
+  }
+  .perfil::-webkit-scrollbar { display: none; }
+  .perfil img { width: clamp(84px, 13vh, 132px); height: clamp(84px, 13vh, 132px); flex: none; }
+  .perfil h1 { font-size: clamp(1.7rem, 4vh, 2.3rem); }
+  .perfil p { line-height: 1.5; }
+}
