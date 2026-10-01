@@ -1,15 +1,14 @@
-// Todo o conteúdo do site vem deste arquivo.
 const dados = {
   nome: "Gabriela Oliveira Lino",
   cargo: "Desenvolvedora Front-End",
-  resumo: "Estudante de Análise e Desenvolvimento de Sistemas com 2 anos de experiência acadêmica em desenvolvimento web e APIs com Java, Spring Boot e MySQL. Busco uma oportunidade como Desenvolvedora Front-end para crescer na área de tecnologia.",
+  resumo: "Estudante de Análise e Desenvolvimento de Sistemas, com 2 anos de experiência acadêmica em desenvolvimento web e APIs utilizando Java, Spring Boot e MySQL. Busco uma oportunidade na área de Desenvolvimento de Software, com interesse em atuar tanto no Front-end quanto no Back-end, aprimorar meus conhecimentos e contribuir com a equipe."
+,
   foto: "img/eu.jpg",
 
   contatos: [
     { rotulo: "ol.gabriela06@gmail.com", link: "mailto:ol.gabriela06@gmail.com?cc=ol.gabriela06%40gmail.com&bcc=ol.gabriela06%40gmail.com&subject=ol.gabriela06%40gmail.com" },
     { rotulo: "(11) 91200-9033", link: "https://wa.link/io86mr"},
     { rotulo: "LinkedIn", link: "https://linkedin.com/in/gabrielaoliveira13" }
-    // { rotulo: "GitHub", link: "https://github.com/seu-usuario" } pra quando tiver
   ],
 
   hardSkills: [
@@ -29,8 +28,6 @@ const dados = {
       titulo: "AlertVia",
       descricao: "Sistema para registro de ocorrências sobre a infraestrutura urbana, criado como TCC no Senai para dar voz à população e ajudar nas melhorias da cidade. Liderei uma equipe de 4 desenvolvedores.",
       tecnologias: ["Java", "Spring Boot", "MySQL"],
-      demo: "",   // link do site, se tiver
-      codigo: ""  // link do repositório no GitHub, se tiver
     }
   ],
 
